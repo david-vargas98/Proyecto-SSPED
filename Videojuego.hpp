@@ -7,7 +7,9 @@ class VideoJuego
 private:
     Arreglo<Jugador> jugadores;  //Administradora de objetos de la clase Jugador.
 public:
+//Constructor 
     VideoJuego();
+//Métodos de acceso
     void agregarAlInicio();
     void agregarAlFinal();
     void insertarPorPosicion();
