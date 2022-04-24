@@ -5,10 +5,11 @@
 class VideoJuego
 {
 private:
-    Arreglo<Jugador> jugadores();  //Administradora de objetos de la clase Jugador.
+    Arreglo<Jugador> jugadores;  //Administradora de objetos de la clase Jugador.
 public:
 //Constructor 
-    VideoJuego();
+    VideoJuego(size_t cantidad):jugadores{cantidad}{};
+    VideoJuego() = default;
 //Métodos de acceso
     void agregarAlInicio();
     void agregarAlFinal();
