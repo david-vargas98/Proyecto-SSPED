@@ -9,6 +9,7 @@ private:
 public:
 //Constructor 
     VideoJuego(size_t cantidad):jugadores{cantidad}{};
+    VideoJuego();
     ~VideoJuego() = default;
 //Métodos de acceso
     void agregarAlInicio();
