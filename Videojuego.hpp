@@ -5,7 +5,7 @@
 class VideoJuego
 {
 private:
-    Arreglo<Jugador> jugadores;  //Administradora de objetos de la clase Jugador.
+    Arreglo<Jugador> jugadores();  //Administradora de objetos de la clase Jugador.
 public:
 //Constructor 
     VideoJuego();
@@ -23,6 +23,4 @@ public:
     void buscarPorPuntuacionAlta(); //El Jugador con la puntuacion más alta.
     void buscarPorMayorCantidadMinutos(); //El Jugador con la cantidad de minutos jugados más alta.
 };
-
-
 #endif
