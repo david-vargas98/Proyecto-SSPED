@@ -2,54 +2,54 @@
 //Constructor
 VideoJuego::VideoJuego()
 {
-    
+
 }
 //Métodos de acceso
-void agregarAlInicio()
+void VideoJuego::agregarAlInicio()
 {
 
 }
-void agregarAlFinal()
+void VideoJuego::agregarAlFinal()
 {
 
 }
-void insertarPorPosicion()
+void VideoJuego::insertarPorPosicion()
 {
 
 }
-void eliminarAlInicio()
+void VideoJuego::eliminarAlInicio()
 {
 
 }
-void eliminarAlFinal()
+void VideoJuego::eliminarAlFinal()
 {
 
 }
-void eliminarPorPosicion()
+void VideoJuego::eliminarPorPosicion()
 {
 
 }
-void ordenarAscendenteNickname() //Usando una función lambda.
+void VideoJuego::ordenarAscendenteNickname() //Usando una función lambda.
 {
 
 }
-void ordenarAscendenteMinutos() //Usando una función lambda.
+void VideoJuego::ordenarAscendenteMinutos() //Usando una función lambda.
 {
 
 }
-void ordenarDescendentePuntuacion()
+void VideoJuego::ordenarDescendentePuntuacion()
 {
     //Usando una función lambda.
 } 
-void buscarPorNickname()
+void VideoJuego::buscarPorNickname()
 {
 
 }
-void buscarPorPuntuacionAlta() //El Jugador con la puntuacion más alta.
+void VideoJuego::buscarPorPuntuacionAlta() //El Jugador con la puntuacion más alta.
 {
 
 }
-void buscarPorMayorCantidadMinutos() //El Jugador con la cantidad de minutos jugados más alta.
+void VideoJuego::buscarPorMayorCantidadMinutos() //El Jugador con la cantidad de minutos jugados más alta.
 {
 
 }
