@@ -2,7 +2,9 @@
 //Constructor implementado
 Jugador::Jugador()
 {
-
+    nickname = "-";
+    minutosJugados = 0;
+    puntuacion = 0;
 }
 //Implementación de métodos de acceso
 void Jugador::setNickname(const string& valor)
