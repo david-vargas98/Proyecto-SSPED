@@ -1,5 +1,6 @@
 #include <iostream>
 #include <locale.h>
+#include "Videojuego.hpp"
 using namespace std;
 void menu()
 {
@@ -31,7 +32,10 @@ void menu_ordenar()
 int main()
 {
      setlocale(LC_ALL, "spanish");
-     int opcion;
+     int opcion, cantidad;
+     cout << "Ingrese la cantidad de Jugadores: ";
+     cin >> cantidad;
+     VideoJuego vj(cantidad);
     do
     {
         menu();
