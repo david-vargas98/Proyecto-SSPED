@@ -1,9 +1,4 @@
 #include "Videojuego.hpp"
-//Constructor
-VideoJuego::VideoJuego()
-{
-
-}
 //Métodos de acceso
 void VideoJuego::agregarAlInicio()
 {
