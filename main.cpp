@@ -32,7 +32,7 @@ void menu_ordenar()
 int main()
 {
      setlocale(LC_ALL, "spanish");
-     int opcion, cantidad;
+     size_t opcion, cantidad;
      cout << "Ingrese la cantidad de Jugadores: ";
      cin >> cantidad;
      VideoJuego vj(cantidad);
