@@ -35,6 +35,7 @@ int main()
     do
     {
         menu();
+        cin >> opcion;
         switch (opcion)
         {
         case 1:
