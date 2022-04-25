@@ -7,7 +7,7 @@ class VideoJuego
 private:
     Arreglo<Jugador> jugadores;  //Administradora de objetos de la clase Jugador.
 public:
-//Constructor 
+//Constructores
     VideoJuego(size_t cantidad):jugadores{cantidad}{};
     VideoJuego();
     ~VideoJuego() = default;
