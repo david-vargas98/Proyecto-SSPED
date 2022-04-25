@@ -35,7 +35,7 @@ int main()
      size_t opcion, cantidad;
      cout << "Ingrese la cantidad de Jugadores: ";
      cin >> cantidad;
-     VideoJuego vj(cantidad);
+     //VideoJuego vj(cantidad);
     do
     {
         menu();
