@@ -19,7 +19,7 @@ public:
     void eliminarAlFinal();
     void eliminarPorPosicion();
     void ordenarAscendenteNickname(); //Usando una función lambda.
-    void ordenarAscendenteMinutos(); //Usando una función lambda.
+    void ordenarDescendenteMinutos(); //Usando una función lambda.
     void ordenarDescendentePuntuacion(); //Usando una función lambda.
     void buscarPorNickname();
     void buscarPorPuntuacionAlta(); //El Jugador con la puntuacion más alta.
