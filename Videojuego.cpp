@@ -28,7 +28,7 @@ void VideoJuego::ordenarAscendenteNickname() //Usando una función lambda.
 {
 
 }
-void VideoJuego::ordenarAscendenteMinutos() //Usando una función lambda.
+void VideoJuego::ordenarDescendenteMinutos() //Usando una función lambda.
 {
 
 }
