@@ -31,5 +31,6 @@ public:
     void capacidad();
     void lleno();
     void vacio();
+    void modificar();
 };
 #endif
