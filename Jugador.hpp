@@ -19,6 +19,34 @@ class Jugador
     float getMinutosJugados() const{return minutosJugados;}
     void setPuntuacion(float valor){puntuacion = valor;}
     float getPuntuacion() const{return puntuacion;}
+    //Sobrecarga de operadores in&out
+    friend istream& operator >>(istream& is, Jugador& j)
+    {
+    //Se declaran variables temporales
+    string n;
+    float m, p;
+    //Se pide al usuario agregar al jugador
+    cout << "\t\tAgregar jugador" << endl;
+    cout << "Ingrese el Nickname: ";
+    cin.ignore();
+    getline(is, n);
+    cout << "Ingrese los minutos jugados: ";
+    is >> m;
+    cout << "Ingrese la puntuación: ";
+    is >> p;
+    //Se asignan los atributos por medio de los métodos de acceso
+    j.setNickname(n);
+    j.setMinutosJugados(m);
+    j.setPuntuacion(p);
+    return is;
+    }
+    friend ostream& operator <<(ostream& os, const Jugador& j)
+    {
+        os << "Nickname: " << j.getNickname() << endl;
+        os << "Minutos Jugados: " << j.getMinutosJugados() << endl;
+        os << "Puntuación: " << j.getPuntuacion() << endl;
+        return os;
+    }
 };
 
 #endif
