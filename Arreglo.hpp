@@ -1,6 +1,8 @@
 #ifndef ARREGLO_HPP
 #define ARREGLO_HPP
 #include <iostream>
+#include <stdexcept>
+#include <functional>
 using namespace std;
 
 template <class T>  //"template" indica que será una plantilla. Entre "<>" va que es una clase "class" y la La "T" va indicar el tipo de dato que va contener la classe arreglo.
