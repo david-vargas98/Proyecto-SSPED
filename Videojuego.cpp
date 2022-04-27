@@ -159,3 +159,19 @@ void VideoJuego::mostrarJugadores()
 {
     jugadores.mostrar();
 }
+void VideoJuego::cantidadJugadores()
+{
+    cout << "Cantidad de Jugadores: " << jugadores.size() << endl;
+}
+void VideoJuego::capacidad()
+{
+    cout << "Capacidad: " << jugadores.max_size() << endl;
+}
+void VideoJuego::lleno()
+{
+    cout << "Lleno: " << jugadores.full() << endl;
+}
+void VideoJuego::vacio()
+{
+    cout << "Vacío: " << jugadores.empty() << endl;
+}
