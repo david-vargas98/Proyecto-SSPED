@@ -179,11 +179,11 @@ public:
 	//Lo que hace es retornarnos un puntero, un puntero que nos va a decir la dirección de memoria dónde están los elementos o dónde hay información.
 	  //Pasa por cada posición del arreglo que tenemos y ya que lo encontró (o la primer coincidencia), nos va retornar la dirección de memoria, en caso de no encontrar el valor, se retorna "NULL" ya que se quiere hacer algo con el valor 
 	  //encontrado, en caso de que no se quisiese hacer nada, se puede retornar un "-1".
-	T* find(const T& element)  //Regresa un puntero y se debe poner el "T" de "template". "Find()" recibe el elemento a buscar, es decir, recibe una referencia constante porque únicamente se va a leer, no vamos a crear una copia.
+	T* find(function<bool(const T& e1, const T& e2)> cmp, const T& element)  //Regresa un puntero y se debe poner el "T" de "template". "Find()" recibe el elemento a buscar, es decir, recibe una referencia constante porque únicamente se va a leer, no vamos a crear una copia.
 	{
-		for (size_t i = 0; i < size() - 1; i++)  //La última posición es "size()-1", porque "size()" por sí solo es la siguiente posición válida, que no es la última posición dónde hay un elemento.
+		for (size_t i = 0; i < size(); i++)  //La última posición es "size()-1", porque "size()" por sí solo es la siguiente posición válida, que no es la última posición dónde hay un elemento.
 		{
-			if (element == arreglo[i])   //Si el elemento es igual a el elemento que está en mi arreglo y justo en esa posición, quiere decir que ya lo encontré.
+			if (cmp(element,arreglo[i]))   //Si el elemento es igual a el elemento que está en mi arreglo y justo en esa posición, quiere decir que ya lo encontré.
 			{
 				return &arreglo[i];  //Si ya se encontró, ahí se debe terminar, pero se debe retornar la dirección de memoria de ese elemento. Se le agrega "&" para que devuelva el puntero y no una copia.
 			}
