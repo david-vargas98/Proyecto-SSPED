@@ -122,7 +122,7 @@ int main()
             }
             break;
         case 11:
-
+            vj.modificar();
             break;
         case 12:
             cout << "\tEstado del arreglo" << endl;
