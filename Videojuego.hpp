@@ -15,6 +15,8 @@ public:
     void agregarAlInicio();
     void agregarAlFinal();
     void insertarPorPosicion();
+    void primer();
+    void ultimo();
     void eliminarAlInicio();
     void eliminarAlFinal();
     void eliminarPorPosicion();
