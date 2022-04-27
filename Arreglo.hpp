@@ -164,10 +164,10 @@ public:
 
 	void mostrar()  //Se utiiliza para mostrar los elementos del arreglo.
 	{
-		cout << "Elementos del arreglo:" << endl;
+		cout << "\tJugadores agregados" << endl;
 		for (size_t i = 0; i < cont; i++)
 		{
-			cout << arreglo[i] << ", ";
+			cout << arreglo[i] << endl;
 		}
 		cout << endl;
 	}
