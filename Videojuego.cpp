@@ -80,15 +80,80 @@ void VideoJuego::ordenarDescendentePuntuacion()  //Usando una función lambda.
 } 
 void VideoJuego::buscarPorNickname()
 {
-
+    //Se declara una variable para el nickname a buscar.
+    string nickname;
+    cout << "Ingresa el Nickname a buscar: ";
+    cin.ignore();
+    getline(cin, nickname);
+    //Se instncia un objeto de jugador temporal.
+    Jugador j;
+    //Se asigna el nombre a buscar del personaje.
+    j.setNickname(nickname);
+    //Se declara la función lambda.
+    auto cmp = [] (const Jugador& j1, const Jugador& j2) { return j1.getNickname() == j2.getNickname(); };
+    //En caso de devolver el puntero hacia la dirección, se asigna.
+    Jugador* encontrado = jugadores.find(cmp, j);
+    if (encontrado)
+    {
+        cout << "					Jugador encontrado:" << endl;
+        cout << *encontrado << endl;
+    }
+    else
+    {
+        cout << "					No existe el Jugador" << endl;
+				cout << endl;
+    }
+    
 }
 void VideoJuego::buscarPorPuntuacionAlta() //El Jugador con la puntuacion más alta.
 {
-
+    //Se declara una variable para la puntuación a buscar.
+    float puntuacion;
+    cout << "Ingresa la Puntuación a buscar: ";
+    cin >> puntuacion;
+    //Se instncia un objeto de jugador temporal.
+    Jugador j;
+    //Se asigna la puntuación a buscar del personaje.
+    j.setPuntuacion(puntuacion);
+    //Se declara la función lambda.
+    auto cmp = [] (const Jugador& j1, const Jugador& j2) { return j1.getPuntuacion() == j2.getPuntuacion(); };
+    //En caso de devolver el puntero hacia la dirección, se asigna.
+    Jugador* encontrado = jugadores.find(cmp, j);
+    if (encontrado)
+    {
+        cout << "					Jugador encontrado:" << endl;
+        cout << *encontrado << endl;
+    }
+    else
+    {
+        cout << "					No existe el Jugador" << endl;
+				cout << endl;
+    }
 }
 void VideoJuego::buscarPorMayorCantidadMinutos() //El Jugador con la cantidad de minutos jugados más alta.
 {
-
+    //Se declara una variable para los minutos jugados a buscar.
+    float minutos;
+    cout << "Ingresa los Minutos Jugados a buscar: ";
+    cin >> minutos;
+    //Se instncia un objeto de jugador temporal.
+    Jugador j;
+    //Se asigna la puntuación a buscar del personaje.
+    j.setMinutosJugados(minutos);
+    //Se declara la función lambda.
+    auto cmp = [] (const Jugador& j1, const Jugador& j2) { return j1.getMinutosJugados() == j2.getMinutosJugados(); };
+    //En caso de devolver el puntero hacia la dirección, se asigna.
+    Jugador* encontrado = jugadores.find(cmp, j);
+    if (encontrado)
+    {
+        cout << "					Jugador encontrado:" << endl;
+        cout << *encontrado << endl;
+    }
+    else
+    {
+        cout << "					No existe el Jugador" << endl;
+				cout << endl;
+    }
 }
 void VideoJuego::mostrarJugadores()
 {
