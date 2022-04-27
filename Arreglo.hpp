@@ -189,30 +189,26 @@ public:
 		return nullptr;  //Si el "for" fue por todas las posiciones y nunca encontró el elemento que se buscaba, y cuando termine el "for", se le dice al usuario que no lo encontró devolviendo un "nullptr".   
 	}
 
-	void sort(bool ascendente = true)  //Método para ordenamiento por el método burbuja. Sino se manda nada, por "default" es "true", pero si se manda un "false", ahí cambia.
-	{
+	//Todo esto: (function<bool(const T& e1, const T& e2)>, es el tipo de dato y quiere decir que se va a recibir una función y "cmp" es el objeto.
+	void sort(function<bool(const T& e1, const T& e2)> cmp, bool ascendente = true)  //Método para ordenamiento por el método burbuja. Sino se manda nada, por "default" es "true", pero si se manda un "false", ahí cambia.
+	{  //Entonces sort recibe toda esa función "function<bool(const T& e1, const T& e2)> cmp" que es como una función prototipo que pueda ser cualquier cosa y regresa un booleano.
 		for (size_t j = size() - 1; j > 0; j--)  //Este "for", desplaza "j" desde la última posición del arreglo hasta "0".
 		{
 			for (size_t i = 0; i < j; i++)  //Este "for" se va realizar una vez desde "0" hasta la posición "J".
 			{
 				if (ascendente)  //En caso de ser "tru" hace el ascendente.
-				{
-					if (arreglo[i] > arreglo[i + 1])
+				{ //Se modifica el código para que se acople a la función "cmp".
+					if (cmp(arreglo[i], arreglo[i + 1]))
 					{
 						T temp = arreglo[i];  //Se crea como una copia del elemento en la posición "i".
-						swap(arreglo[i], arreglo[i + 1]);  //Se mandann los argumentos a "swap".
-						//arreglo[i] = arreglo[i + 1];  //Como ya se tiene la copia, se puede hacer el intercambio de los elementos de derecha a izquierda.
-						//arreglo[i + 1] = temp;  //Se pasa el elemento copiado de de la izquierda de "arreglo[i]" que se almacenó en "temp" a la derecha en "arreglo[i+1]".
+						swap(arreglo[i], arreglo[i + 1]);  //Se mandann los argumentos a "swap", es decir, se hace el intercambio.
 					}
 				}
 				else
 				{
-					if (arreglo[i] < arreglo[i + 1])  //La única diferencia del ascendete, es que el descendente czmbia el comparador a "<".
+					if (!cmp(arreglo[i], arreglo[i + 1]))  //Se pone lo mismo que en el ascendente, solo que al inicio lo negamos con un "!".
 					{
 						swap(arreglo[i], arreglo[i + 1]);  //Se mandann los argumentos a "swap".
-						//T temp = arreglo[i];  //Se crea como una copia del elemento en la posición "i".
-						//arreglo[i] = arreglo[i + 1];  //Como ya se tiene la copia, se puede hacer el intercambio de los elementos de derecha a izquierda.
-						//arreglo[i + 1] = temp;  //Se pasa el elemento copiado de de la izquierda de "arreglo[i]" que se almacenó en "temp" a la derecha en "arreglo[i+1]".
 					}
 				}
 
