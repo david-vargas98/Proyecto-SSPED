@@ -175,3 +175,84 @@ void VideoJuego::vacio()
 {
     cout << "Vacío: " << jugadores.empty() << endl;
 }
+void VideoJuego::modificar()
+{
+   //Se declara una variable para el nickname a buscar.
+    string nickname;
+    cout << "Ingresa el Nickname a buscar: ";
+    cin.ignore();
+    getline(cin, nickname);
+    //Se instncia un objeto de jugador temporal.
+    Jugador j;
+    //Se asigna el nombre a buscar del personaje.
+    j.setNickname(nickname);
+    //Se declara la función lambda.
+    auto cmp = [] (const Jugador& j1, const Jugador& j2) { return j1.getNickname() == j2.getNickname(); };
+    //En caso de devolver el puntero hacia la dirección, se asigna.
+    Jugador* encontrado = jugadores.find(cmp, j);
+    if (encontrado)
+    {
+        cout << "					Jugador encontrado:" << endl;
+        cout << *encontrado << endl << endl;
+        //Declaración de varibale para el menú.
+        size_t opcion_mod;
+        //Se inicia un ciclo.
+        while (true)
+        {
+            //Menú para las modificaciones del Jugador.
+            cout << "\tModificar" << endl;
+            cout << "1) Nickname" << endl;
+            cout << "2) Minutos Jugados" << endl;
+            cout << "3) Puntuación" << endl;
+            cout << "4) Salir" << endl;
+            cout << "Elija el atributo que desa modificar: ";
+            cin >> opcion_mod;
+            if (opcion_mod == 1)
+            {
+                //Se declara una variable temporal.
+                string nuevo;
+                //Se pide ingresar el nuevo valor del atributo.
+                cout << "Ingrese el nuevo Nickname: ";
+                cin.ignore();
+                getline(cin, nuevo);
+                //Se asigna el nuevo valor a el atributo del objeto.
+                encontrado->setNickname(nuevo);  //Se utiliza la flecha, ya que estamos haciendo referencia a un puntero.
+                cout << "El Nickname ha sido modificado con éxito!" << endl;
+                break; //Se utliza para romper el ciclo.
+            }
+            if (opcion_mod == 2)
+            {
+                float nuevo_min;
+                cout << "Ingrese los nuevos Minutos Jugados: ";
+                cin >> nuevo_min;
+                encontrado->setMinutosJugados(nuevo_min);
+                cout << "Los Minutos Jugados han sido modificados con éxito!" << endl;
+                break;
+            }
+            if (opcion_mod == 3)
+            {
+                float nuevo_pun;
+                cout << "Ingrese la nuevas Puntuación: ";
+                cin >> nuevo_pun;
+                encontrado->setPuntuacion(nuevo_pun);
+                cout << "La Puntuación han sido modificada con éxito!" << endl;
+                break;
+            }
+            if (opcion_mod == 4)
+            {
+                cout << "Usted ha salido del programa" << endl;
+                break;
+            }
+            else if (opcion_mod < 1 || opcion_mod > 4)
+            {
+                 cout << "Ha seleccionado una opción no válida" << endl;
+            }
+        }
+    }
+    else
+    {
+        cout << "					No existe el Jugador" << endl;
+		cout << endl;
+    }
+
+}
