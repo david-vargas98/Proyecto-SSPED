@@ -61,6 +61,7 @@ void VideoJuego::eliminarAlInicio()
     else
     {
         jugadores.pop_front();
+        cout << "!El Jugador al inicio ha sido eliminado con éxito!" << endl;
     }
 }
 void VideoJuego::eliminarAlFinal()
@@ -72,6 +73,7 @@ void VideoJuego::eliminarAlFinal()
     else
     {
         jugadores.pop_back();
+        cout << "!El Jugador al final ha sido eliminado con éxito!" << endl;
     }
 }
 void VideoJuego::eliminarPorPosicion()
@@ -87,6 +89,7 @@ void VideoJuego::eliminarPorPosicion()
         cout << "¿Cuál es la posición del Jugador que desea eliminar?" << endl;
         cin >> pos;
         jugadores.erase(pos);
+        cout << "!El Jugador en la posición " << pos << " ha sido eliminado con éxito!" << endl;
     }
 }
 void VideoJuego::primer()
