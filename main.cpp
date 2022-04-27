@@ -45,10 +45,47 @@ int main()
         case 1:
         vj.agregarAlInicio();
             break;
+        case 2:
+        vj.agregarAlFinal();
+            break;
+        case 3:
+        vj.insertarPorPosicion();
+            break;
+        case 4:
+
+            break;
+        case 5:
+
+            break;
+        case 6:
+
+            break;
+        case 7:
+
+            break;
+        case 8:
+
+            break;
+        case 9:
+
+            break;
+        case 10:
+
+            break;
+        case 11:
+
+            break;
+        case 12:
+
+            break;
         case 13:
         vj.mostrarJugadores();
             break;
+        case 14:
+            cout << "Usted ha salido del programa" << endl;
+            break;
         default:
+            cout << "Ha seleccionado una opción no válida" << endl;
             break;
         }
     } while (opcion != 14);
