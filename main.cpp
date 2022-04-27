@@ -25,10 +25,18 @@ void menu()
 void menu_ordenar()
 {
     cout << "\tMenú Ordenar" << endl;
+    cout << "1) Buscar por Nickname" << endl;
+    cout << "2) Buscar por Minutos jugados" << endl;
+    cout << "3) Buscar por Puntuación" << endl;
+    cout << "4) Salir" << endl;
+}
+void menu_buscar()
+{
+    cout << "\tMenú Buscar" << endl;
     cout << "1) Ordena por Nickname (Ascendente)" << endl;
     cout << "2) Ordena por Minutos jugados (Ascendente)" << endl;
     cout << "3) Ordena por Puntuación (Descendente)" << endl;
-    cout << "Salir" << endl;
+    cout << "4) Salir";
 }
 int main()
 {
@@ -91,7 +99,27 @@ int main()
             vj.eliminarPorPosicion();
             break;
         case 10:
-
+            menu_ordenar();
+            size_t opcion_bus;
+            cin >> opcion_bus;
+            switch (opcion_bus)
+            {
+            case 1:
+                vj.buscarPorNickname();
+                break;
+            case 2:
+                vj.buscarPorMayorCantidadMinutos();
+                break;
+            case 3:
+                vj.buscarPorPuntuacionAlta();
+                break;
+            case 4:
+                cout << "Usted ha regresado al menú principal" << endl;
+                break;
+            default:
+                cout << "Ha elegido una opción no válida" << endl;
+                break;
+            }
             break;
         case 11:
 
