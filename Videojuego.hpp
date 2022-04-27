@@ -27,5 +27,9 @@ public:
     void buscarPorPuntuacionAlta(); //El Jugador con la puntuacion más alta.
     void buscarPorMayorCantidadMinutos(); //El Jugador con la cantidad de minutos jugados más alta.
     void mostrarJugadores();
+    void cantidadJugadores();
+    void capacidad();
+    void lleno();
+    void vacio();
 };
 #endif
