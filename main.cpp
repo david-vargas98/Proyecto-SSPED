@@ -19,6 +19,7 @@ void menu()
     cout << "12) Mostrar el estado del arreglo" << endl;
     cout << "13) Mostrar todos los jugadores del arreglo" << endl;
     cout << "14) Salir" << endl;
+    cout << "Seleciona una opción: ";
 
 
 }
@@ -28,7 +29,8 @@ void menu_ordenar()
     cout << "1) Ordena por Nickname (Ascendente)" << endl;
     cout << "2) Ordena por Minutos jugados (Ascendente)" << endl;
     cout << "3) Ordena por Puntuación (Descendente)" << endl;
-    cout << "4) Salir";
+    cout << "4) Salir" << endl;
+    cout << "Seleciona una opción: ";
 }
 void menu_buscar()
 {
@@ -37,6 +39,7 @@ void menu_buscar()
     cout << "2) Buscar por Minutos jugados" << endl;
     cout << "3) Buscar por Puntuación" << endl;
     cout << "4) Salir" << endl;
+    cout << "Seleciona una opción: ";
 }
 int main()
 {
@@ -99,7 +102,7 @@ int main()
             vj.eliminarPorPosicion();
             break;
         case 10:
-            menu_ordenar();
+            menu_buscar();
             size_t opcion_bus;
             cin >> opcion_bus;
             switch (opcion_bus)
