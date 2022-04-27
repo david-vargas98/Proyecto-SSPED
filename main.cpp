@@ -25,18 +25,18 @@ void menu()
 void menu_ordenar()
 {
     cout << "\tMenú Ordenar" << endl;
-    cout << "1) Buscar por Nickname" << endl;
-    cout << "2) Buscar por Minutos jugados" << endl;
-    cout << "3) Buscar por Puntuación" << endl;
-    cout << "4) Salir" << endl;
-}
-void menu_buscar()
-{
-    cout << "\tMenú Buscar" << endl;
     cout << "1) Ordena por Nickname (Ascendente)" << endl;
     cout << "2) Ordena por Minutos jugados (Ascendente)" << endl;
     cout << "3) Ordena por Puntuación (Descendente)" << endl;
     cout << "4) Salir";
+}
+void menu_buscar()
+{
+    cout << "\tMenú Buscar" << endl;
+    cout << "1) Buscar por Nickname" << endl;
+    cout << "2) Buscar por Minutos jugados" << endl;
+    cout << "3) Buscar por Puntuación" << endl;
+    cout << "4) Salir" << endl;
 }
 int main()
 {
@@ -125,7 +125,11 @@ int main()
 
             break;
         case 12:
-
+            cout << "\tEstado del arreglo" << endl;
+            vj.cantidadJugadores();
+            vj.capacidad();
+            vj.vacio();
+            vj.lleno();
             break;
         case 13:
         vj.mostrarJugadores();
