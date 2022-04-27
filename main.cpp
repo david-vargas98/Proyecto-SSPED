@@ -43,9 +43,11 @@ int main()
         switch (opcion)
         {
         case 1:
-
+        vj.agregarAlInicio();
             break;
-        
+        case 13:
+        vj.mostrarJugadores();
+            break;
         default:
             break;
         }
