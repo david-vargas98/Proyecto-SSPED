@@ -28,6 +28,7 @@ void menu_ordenar()
     cout << "1) Ordena por Nickname (Ascendente)" << endl;
     cout << "2) Ordena por Minutos jugados (Ascendente)" << endl;
     cout << "3) Ordena por Puntuación (Descendente)" << endl;
+    cout << "Salir" << endl;
 }
 int main()
 {
@@ -52,22 +53,42 @@ int main()
         vj.insertarPorPosicion();
             break;
         case 4:
-
+        vj.primer();
             break;
         case 5:
-
+        vj.ultimo();
             break;
         case 6:
-
+        menu_ordenar();
+        size_t opcion_or;
+        cin >> opcion_or;
+        switch (opcion_or)
+        {
+        case 1:
+            vj.ordenarAscendenteNickname();
+            break;
+        case 2:
+            vj.ordenarDescendenteMinutos();
+            break;
+        case 3:
+            vj.ordenarDescendentePuntuacion();
+            break;
+        case 4:
+            cout << "Usted ha regresado al menú principal" << endl;
+            break;
+        default:
+            cout << "Ha elegido una opción no válida" << endl;
+            break;
+        }
             break;
         case 7:
-
+            vj.eliminarAlInicio();
             break;
         case 8:
-
+            vj.eliminarAlFinal();
             break;
         case 9:
-
+            vj.eliminarPorPosicion();
             break;
         case 10:
 
