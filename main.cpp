@@ -41,12 +41,20 @@ void menu_buscar()
     cout << "4) Salir" << endl;
     cout << "Seleciona una opción: ";
 }
-int main()
+int main(int arg, char* argv[])
 {
      setlocale(LC_ALL, "spanish");
      size_t opcion, cantidad;
-     cout << "Ingrese la cantidad de Jugadores: ";
-     cin >> cantidad;
+     if (arg == 1)  //En caso de no mandar el tamaño por terminal, se ingresa en ejecución.
+     {
+         cout << "Ingrese la cantidad de Jugadores: ";
+         cin >> cantidad;
+     }
+     else
+     {
+         cantidad = stoul(argv[1]);  //En la posición "1" es dónde está el argumento o tamaño. Se convierte el string a unsigned long.
+     }
+     
      VideoJuego vj(cantidad);
     do
     {
