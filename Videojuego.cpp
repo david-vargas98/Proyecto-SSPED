@@ -1,4 +1,5 @@
 #include "Videojuego.hpp"
+#include <iomanip>
 //Métodos de acceso
 void VideoJuego::agregarAlInicio()
 {
@@ -263,7 +264,12 @@ void VideoJuego::mostrarJugadores()
     }
     else
     {
-        jugadores.mostrar();
+        cout << setw(10) << "Nickname" << setw(8) << "Minutos" << setw(12) << "Puntuación" << endl;
+		for (size_t i = 0; i < jugadores.size(); i++)
+		{
+			cout << setw(10) << jugadores[i].getNickname() << setw(8) << jugadores[i].getMinutosJugados() <<
+            setw(12) << jugadores[i].getPuntuacion() << endl;
+		}
     }
 }
 void VideoJuego::cantidadJugadores()
