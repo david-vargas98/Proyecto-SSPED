@@ -109,7 +109,7 @@ public:
 			throw out_of_range("Arreglo is full"); //"throw" es la palabra reservada de excepción, "out_of_range" es la excepción que se va lanzar y mandamos un mensaje de lo que pasó.
 												   //Como el arreglo está lleno, no sabe que hacer, lanza la excepción y termina el programa, y sino está lleno, contimnúa con la ejecución.
 		}
-		else if (pos >= cont) //Se debe validar también la posición.
+		else if (pos > cont) //Se debe validar también la posición.
 		{
 			throw out_of_range("Invalid position"); //Si la posición no es válida, se puede mandar una excepción.
 		}
