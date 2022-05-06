@@ -50,7 +50,21 @@ void VideoJuego::insertarPorPosicion()
         //Se agrega al arreglo el personaje.
         cout << "¿En qué posición válida desea agregar al jugador?" << endl;
         cin >> pos;
-        jugadores.insert(j, pos);
+        if (pos > jugadores.size()) //No se puede garegar elementos más allá del contador.
+        {
+            cout << jugadores.size() << endl;
+            cout << jugadores.max_size() << endl;
+            cout << "La posición no es válida, debe haber elementos continuos en la lista" << endl;
+        }
+        else if (pos == jugadores.size()) //En caso de que el contador se igual que la posición, entonces se inserta en la última posición.
+        {
+            jugadores.push_back(j);
+        }
+        
+        else
+        {
+            jugadores.insert(j, pos);  //Se inserta en la posición índicada.
+        }        
     }
 }
 void VideoJuego::eliminarAlInicio()
@@ -159,11 +173,12 @@ void VideoJuego::ordenarDescendentePuntuacion()  //Usando una función lambda.
         cout << "Se ha ordenado por Puntuación de manera Descendente" << endl;
     }
 } 
-void VideoJuego::buscarPorNickname()
+Jugador* VideoJuego::buscarPorNickname()
 {
     if (jugadores.empty())
     {
         cout << "No se puede buscar ya que el Arreglo está vacío" << endl;
+        return nullptr;
     }
     else
     {
@@ -184,11 +199,13 @@ void VideoJuego::buscarPorNickname()
         {
             cout << "					Jugador encontrado:" << endl;
             cout << *encontrado << endl;
+            return encontrado;
         }
         else
         {
             cout << "					No existe el Jugador" << endl;
-	    			cout << endl;
+	    	cout << endl;
+            return nullptr;
         }
     }
 }
