@@ -1,6 +1,8 @@
 #ifndef JUGADOR_HPP
 #define JUGADOR_HPP
 #include<iostream>
+#include "ListaArreglo.hpp"
+#include "Civilizacion.hpp"
 using namespace std;
 class Jugador
 {
@@ -8,6 +10,7 @@ class Jugador
     string nickname;
     float minutosJugados;
     float puntuacion;
+    ListaArreglo<Civilizacion> civilizaciones;  //Cada jugador puede agregar "n" civilizaciones.
     public:
     //Constructores
     Jugador() = default;
