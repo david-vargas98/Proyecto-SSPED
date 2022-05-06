@@ -16,7 +16,7 @@ class Civilizacion
     void setNombre(const string& valor) { nombre = valor; }
     string getNombre() const { return nombre; }
     void setPosx(int valor) { posx = valor; }
-    int getPosy() const { return posx; }
+    int getPosx() const { return posx; }
     void setPosy(int valor) { posy = valor; }
     int getPosy() const { return posy; }
 
