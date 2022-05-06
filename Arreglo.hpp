@@ -8,7 +8,7 @@ using namespace std;
 template <class T>  //"template" indica que será una plantilla. Entre "<>" va que es una clase "class" y la La "T" va indicar el tipo de dato que va contener la classe arreglo.
 class Arreglo
 {
-private:
+protected:  //Se cmabia el encapsulamineto para que la clas derivada pueda acceder.
 	T* arreglo; //La "T" es el puntero de tipo de dato genérico que va guardar la dirección de memoria dónde está ese arreglo que se definió o se reservó de manera dinámica.
 	size_t cont; //Es el contador que comienza en "0", de tipo de dato "size_t".
 	size_t tam; //Es el tamaño, que se va asignar de manera externa.
