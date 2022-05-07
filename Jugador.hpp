@@ -50,19 +50,6 @@ class Jugador
         os << "Puntuación: " << j.getPuntuacion() << endl;
         return os;
     }
-    //Métodos de interfaz
-    void agregarFinal(const Civilizacion& c);
-    void agregarInicio(const Civilizacion& c);
-    void insertarPosicion(const Civilizacion& c, size_t pos);
-    void primeraCivilizacion();
-    void ultimaCivilizacion();
-    void ordenarNombre();
-    void ordenarPosY();
-    void ordenarPosX();
-    void eliminar();
-    void buscar();
-    void modificar();
-    void resumen();
 };
 
 #endif
