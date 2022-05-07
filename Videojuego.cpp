@@ -52,8 +52,6 @@ void VideoJuego::insertarPorPosicion()
         cin >> pos;
         if (pos > jugadores.size()) //No se puede garegar elementos más allá del contador.
         {
-            cout << jugadores.size() << endl;
-            cout << jugadores.max_size() << endl;
             cout << "La posición no es válida, debe haber elementos continuos en la lista" << endl;
         }
         else if (pos == jugadores.size()) //En caso de que el contador se igual que la posición, entonces se inserta en la última posición.
@@ -103,8 +101,18 @@ void VideoJuego::eliminarPorPosicion()
         size_t pos;
         cout << "¿Cuál es la posición del Jugador que desea eliminar?" << endl;
         cin >> pos;
-        jugadores.erase(pos);
-        cout << "!El Jugador en la posición " << pos << " ha sido eliminado con éxito!" << endl;
+        if (pos >= jugadores.size())
+        {
+            cout << "La posición a eliminar no es válida" << endl;
+        }
+        else
+        {
+            jugadores.erase(pos);
+            cout << "!El Jugador en la posición " << pos << " ha sido eliminado con éxito!" << endl;
+        }
+        
+        
+        
     }
 }
 void VideoJuego::primer()
@@ -127,7 +135,7 @@ void VideoJuego::ultimo()
     }
     else
     {
-        cout << "Último Jugador:" << endl;
+        cout << "Última Civilización:" << endl;
         cout << jugadores.back();
     }
 }
@@ -209,11 +217,12 @@ Jugador* VideoJuego::buscarPorNickname()
         }
     }
 }
-void VideoJuego::buscarPorPuntuacionAlta() //El Jugador con la puntuacion más alta.
+Jugador* VideoJuego::buscarPorPuntuacionAlta() //El Jugador con la puntuacion más alta.
 {
     if (jugadores.empty())
     {
         cout << "No se puede buscar ya que el Arreglo está vacío" << endl;
+        return nullptr;
     }
     else
     {
@@ -233,19 +242,22 @@ void VideoJuego::buscarPorPuntuacionAlta() //El Jugador con la puntuacion más a
         {
             cout << "					Jugador encontrado:" << endl;
             cout << *encontrado << endl;
+            return encontrado;
         }
         else
         {
             cout << "					No existe el Jugador" << endl;
-	    			cout << endl;
+	    	cout << endl;
+            return nullptr;
         }
     }
 }
-void VideoJuego::buscarPorMayorCantidadMinutos() //El Jugador con la cantidad de minutos jugados más alta.
+Jugador* VideoJuego::buscarPorMayorCantidadMinutos() //El Jugador con la cantidad de minutos jugados más alta.
 {
     if (jugadores.empty())
     {
         cout << "No se puede buscar ya que el Arreglo está vacío" << endl;
+        return nullptr;
     }
     else
     {
@@ -265,11 +277,13 @@ void VideoJuego::buscarPorMayorCantidadMinutos() //El Jugador con la cantidad de
         {
             cout << "					Jugador encontrado:" << endl;
             cout << *encontrado << endl;
+            return encontrado;
         }
         else
         {
             cout << "					No existe el Jugador" << endl;
-	    			cout << endl;
+	    	cout << endl;
+            return nullptr;
         }
     }
 }
@@ -281,6 +295,7 @@ void VideoJuego::mostrarJugadores()
     }
     else
     {
+        cout << left;
         cout << setw(10) << "Nickname" << setw(8) << "Minutos" << setw(12) << "Puntuación" << endl;
 		for (size_t i = 0; i < jugadores.size(); i++)
 		{
@@ -341,7 +356,7 @@ void VideoJuego::modificar()
                 cout << "2) Minutos Jugados" << endl;
                 cout << "3) Puntuación" << endl;
                 cout << "4) Salir" << endl;
-                cout << "Elija el atributo que desa modificar: ";
+                cout << "Elija el atributo que desea modificar: ";
                 cin >> opcion_mod;
                 if (opcion_mod == 1)
                 {
@@ -376,7 +391,7 @@ void VideoJuego::modificar()
                 }
                 if (opcion_mod == 4)
                 {
-                    cout << "Usted ha salido del programa" << endl;
+                    cout << "Usted ha salido del menú modificar" << endl;
                     break;
                 }
                 else if (opcion_mod < 1 || opcion_mod > 4)
