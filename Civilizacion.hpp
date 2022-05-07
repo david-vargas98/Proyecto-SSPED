@@ -19,6 +19,13 @@ class Civilizacion
     int getPosx() const { return posx; }
     void setPosy(int valor) { posy = valor; }
     int getPosy() const { return posy; }
-
+    //Sobrecargas
+    friend ostream& operator <<(ostream& os, const Civilizacion& c)
+    {
+        os << "Nombre: " << c.getNombre() << endl;
+        os << "Posición en X: " << c.getPosx() << endl;
+        os << "Posición en Y: " << c.getPosy() << endl;
+        return os;
+    }
 };
 #endif
