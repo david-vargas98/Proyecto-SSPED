@@ -57,11 +57,13 @@ void VideoJuego::insertarPorPosicion()
         else if (pos == jugadores.size()) //En caso de que el contador se igual que la posición, entonces se inserta en la última posición.
         {
             jugadores.push_back(j);
+            cout << "¡El Jugador " << j.getNickname() << " ha sido agregado en la posición " << pos << " con éxito!" << endl;
         }
         
         else
         {
             jugadores.insert(j, pos);  //Se inserta en la posición índicada.
+            cout << "¡El Jugador " << j.getNickname() << " ha sido agregado en la posición " << pos << " con éxito!" << endl;
         }        
     }
 }
