@@ -24,8 +24,8 @@ public:
     void ordenarDescendenteMinutos(); //Usando una función lambda.
     void ordenarDescendentePuntuacion(); //Usando una función lambda.
     Jugador* buscarPorNickname();
-    void buscarPorPuntuacionAlta(); //El Jugador con la puntuacion más alta.
-    void buscarPorMayorCantidadMinutos(); //El Jugador con la cantidad de minutos jugados más alta.
+    Jugador* buscarPorPuntuacionAlta(); //El Jugador con la puntuacion más alta.
+    Jugador* buscarPorMayorCantidadMinutos(); //El Jugador con la cantidad de minutos jugados más alta.
     void mostrarJugadores();
     void cantidadJugadores();
     void capacidad();
