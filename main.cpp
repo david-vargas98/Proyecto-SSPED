@@ -1,6 +1,7 @@
 #include <iostream>
 #include <locale.h>
 #include "Videojuego.hpp"
+#include "menu_civilizaciones.hpp"
 using namespace std;
 void menu()
 {
@@ -25,16 +26,16 @@ void menu()
 }
 void menu_ordenar()
 {
-    cout << "\tMenú Ordenar" << endl;
+    cout << "\tMenú Ordenar Jugadores" << endl;
     cout << "1) Ordena por Nickname (Ascendente)" << endl;
-    cout << "2) Ordena por Minutos jugados (Ascendente)" << endl;
+    cout << "2) Ordena por Minutos jugados (Descendente)" << endl;
     cout << "3) Ordena por Puntuación (Descendente)" << endl;
     cout << "4) Salir" << endl;
     cout << "Seleciona una opción: ";
 }
 void menu_buscar()
 {
-    cout << "\tMenú Buscar" << endl;
+    cout << "\tMenú Buscar Jugador" << endl;
     cout << "1) Buscar por Nickname" << endl;
     cout << "2) Buscar por Minutos jugados" << endl;
     cout << "3) Buscar por Puntuación" << endl;
@@ -78,27 +79,27 @@ int main(int arg, char* argv[])
         vj.ultimo();
             break;
         case 6:
-        menu_ordenar();
-        size_t opcion_or;
-        cin >> opcion_or;
-        switch (opcion_or)
-        {
-        case 1:
-            vj.ordenarAscendenteNickname();
-            break;
-        case 2:
-            vj.ordenarDescendenteMinutos();
-            break;
-        case 3:
-            vj.ordenarDescendentePuntuacion();
-            break;
-        case 4:
-            cout << "Usted ha regresado al menú principal" << endl;
-            break;
-        default:
-            cout << "Ha elegido una opción no válida" << endl;
-            break;
-        }
+            size_t opcion_or;
+            menu_ordenar();
+            cin >> opcion_or;
+            switch (opcion_or)
+            {
+            case 1:
+                vj.ordenarAscendenteNickname();
+                break;
+            case 2:
+                vj.ordenarDescendenteMinutos();
+                break;
+            case 3:
+                vj.ordenarDescendentePuntuacion();
+                break;
+            case 4:
+                cout << "Usted ha regresado al menú principal" << endl;
+                break;
+            default:
+                cout << "Ha elegido una opción no válida" << endl;
+                break;
+            }
             break;
         case 7:
             vj.eliminarAlInicio();
@@ -110,19 +111,32 @@ int main(int arg, char* argv[])
             vj.eliminarPorPosicion();
             break;
         case 10:
-            menu_buscar();
             size_t opcion_bus;
+            menu_buscar();
             cin >> opcion_bus;
             switch (opcion_bus)
             {
             case 1:
-                vj.buscarPorNickname();
+                Jugador* resultado;
+                resultado = vj.buscarPorNickname();
+                if (resultado != nullptr)
+                {
+                    menu_civilizaciones(resultado);   
+                }
                 break;
             case 2:
-                vj.buscarPorMayorCantidadMinutos();
+                resultado = vj.buscarPorMayorCantidadMinutos();
+                if (resultado != nullptr)
+                {
+                    menu_civilizaciones(resultado);   
+                }
                 break;
             case 3:
-                vj.buscarPorPuntuacionAlta();
+                resultado = vj.buscarPorPuntuacionAlta();
+                 if (resultado != nullptr)
+                {
+                    menu_civilizaciones(resultado);   
+                }
                 break;
             case 4:
                 cout << "Usted ha regresado al menú principal" << endl;
