@@ -1,6 +1,8 @@
 #ifndef CIVILIZACION_HPP
 #define CIVILIZACION_HPP
 #include <iostream>
+#include <list>
+#include "Aldeano.hpp"
 using namespace std;
 class Civilizacion
 {
@@ -8,6 +10,7 @@ class Civilizacion
     string nombre;
     int posx;
     int posy;
+    list<Aldeano> aldeanos;  //Se incluye un list de aldeanos.
     public:
     //Constructores
     Civilizacion() = default;
