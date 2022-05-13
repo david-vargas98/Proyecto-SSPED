@@ -111,7 +111,7 @@ void Jugador::eliminar()  //No se valida ya que sino la encuentra, manda un mens
         cout << "No se encontró la civilización que desea eliminar" << endl;
     }
 }
-void Jugador::buscar()  //No se valida ya que sino la encuentra, manda un mensaje.
+Civilizacion* Jugador::buscar()  //No se valida ya que sino la encuentra, manda un mensaje.
 {
     //Se declara una variable para la civilización a buscar.
         string nombre;
@@ -130,11 +130,13 @@ void Jugador::buscar()  //No se valida ya que sino la encuentra, manda un mensaj
         {
             cout << "\tCivilización encontrada:" << endl;
             cout << *encontrado << endl;
+            return encontrado;
         }
         else
         {
             cout << "\tNo existe la Civilización" << endl;
 	    	cout << endl;
+            return nullptr;
         }
 }
 void Jugador::modificar()  //No se valida ya que sino la encuentra, manda un mensaje.
