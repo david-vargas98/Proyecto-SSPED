@@ -60,7 +60,7 @@ class Jugador
     void ordenarPosY();
     void ordenarPosX();
     void eliminar();
-    void buscar();
+    Civilizacion* buscar();
     void modificar();
     void resumen();
 };
