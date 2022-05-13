@@ -2,6 +2,7 @@
 #define MENU_CIVILIZACIONES_HPP
 #include <iostream>
 #include "Jugador.hpp"
+#include "menu_aldeanos.hpp"
 using namespace std;
 void menu_ordenar_civilizaciones()
 {
@@ -130,7 +131,13 @@ void menu_civilizaciones(Jugador* resultado)
         }
         else if (opcion_civi == 8)
         {
-            resultado->buscar();
+            Civilizacion* encontrada;
+            encontrada = resultado->buscar();
+            if (encontrada != nullptr)
+            {
+                menu_aldeanos(encontrada);
+            }
+            
         }
         else if (opcion_civi == 9)
         {
