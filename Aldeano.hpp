@@ -49,7 +49,7 @@ class Aldeano
     friend ostream& operator <<(ostream& os, const Aldeano& a)
     {
         cout << left;
-        os << setw(10) << a.getNombre() << setw(6) << a.getEdad() << setw(8) << a.getGenero() <<  setw(7) << a.getSalud() << endl;
+        os << setw(10) << a.getNombre() << setw(6) << a.getEdad() << setw(10) << a.getGenero() <<  setw(7) << a.getSalud() << endl;
         return os;
     }
     //Remove no sabe como eliminar un Aldeano, así que se sobrecarga el comparador "==".
