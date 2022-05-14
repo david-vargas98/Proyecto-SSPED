@@ -30,5 +30,12 @@ class Civilizacion
         os << "Posición en Y: " << c.getPosy() << endl;
         return os;
     }
+    //Métodos de interfaz.
+    void agregarInicio(const Aldeano& a);
+    void agregarFinal(const Aldeano& a);
+    bool empty();
+    void eliminarNombre();
+    void eliminarSalud();
+    void eliminarEdad();
 };
 #endif
