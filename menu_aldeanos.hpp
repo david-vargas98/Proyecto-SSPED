@@ -17,7 +17,7 @@ void eliminar()
     cout << "\tEliminar Aldeanos" << endl;
     cout << "1) Eliminar por Nombre" << endl;
     cout << "2) Eliminar Aldeanos dónde su salud sea menor a la que ingrese el ususario" << endl;
-    cout << "3) Eliminar aldeanos donde su edad sea mayor igual a 60" << endl;
+    cout << "3) Eliminar aldeanos donde su edad sea mayor o igual a 60" << endl;
     cout << "4) Salir" << endl;
     cout << "Selecciona una opción: ";
 }
@@ -131,36 +131,43 @@ void menu_aldeanos(Civilizacion* c, Jugador* j)
         }
         if (opcion_aldeanos == 3)
         {
-            while (true)
+            if (c->empty() == true)
             {
-                clasificar();
-                size_t clasificar;
-                cin >> clasificar;
-                if (clasificar == 1)
+                cout << "No se puede clasificar ya que no hay Aldeanos agregados" << endl;
+            }
+            else
+            {
+                while (true)
                 {
-                    c->ordenarNombre();
-                    break;
-                }
-                if (clasificar == 2)
-                {
-                    c->ordenarEdad();
-                    break;
-                }
-                if (clasificar == 3)
-                {
-                    c->ordenarSalud();
-                    break;
-                }
-                if (clasificar == 4)
-                {
-                    cout << "Usted ha regresado al menú de Aldeanos" << endl;
-                    break;
-                }
-                if (clasificar < 1 || clasificar > 4)
-                {
-                    cout << "Ha seleccionado una opción no válida" << endl;
-                }   
-            } 
+                    clasificar();
+                    size_t clasificar;
+                    cin >> clasificar;
+                    if (clasificar == 1)
+                    {
+                        c->ordenarNombre();
+                        break;
+                    }
+                    if (clasificar == 2)
+                    {
+                        c->ordenarEdad();
+                        break;
+                    }
+                    if (clasificar == 3)
+                    {
+                        c->ordenarSalud();
+                        break;
+                    }
+                    if (clasificar == 4)
+                    {
+                        cout << "Usted ha regresado al menú de Aldeanos" << endl;
+                        break;
+                    }
+                    if (clasificar < 1 || clasificar > 4)
+                    {
+                        cout << "Ha seleccionado una opción no válida" << endl;
+                    }   
+                } 
+            }
         }
         if (opcion_aldeanos == 4)
         {
