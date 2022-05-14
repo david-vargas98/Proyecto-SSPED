@@ -37,5 +37,11 @@ class Civilizacion
     void eliminarNombre();
     void eliminarSalud();
     void eliminarEdad();
+    void ordenarNombre();
+    void ordenarEdad();
+    void ordenarSalud();
+    void buscar();
+    void modificar();
+    void mostrar();
 };
 #endif
