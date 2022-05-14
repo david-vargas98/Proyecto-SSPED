@@ -23,27 +23,40 @@ class Aldeano
     //Sobrecarga de operadores.
     friend istream& operator >>(istream& is, Aldeano& a)
     {
-    //Se declaran variables temporales
-    string nombre, genero;
-    float edad, salud;
-    //Se pide al usuario agregar al jugador
-    cout << "\t\tAgregar aldeano" << endl;
-    cout << "Ingrese el nombre del Aldeano: ";
-    cin.ignore();
-    getline(is, nombre);
-    cout << "Ingrese la edad del Aldeano: ";
-    is >> edad;
-    cout << "Ingrese el género del Aldeano: ";
-    cin.ignore();
-    getline(is, genero);
-    cout << "Ingrese la salud del Aldeano: ";
-    is >> salud;
-    //Se asignan los atributos por medio de los métodos de acceso
-    a.setNombre(nombre);
-    a.setEdad(edad);
-    a.setGenero(genero);
-    a.setSalud(salud);
-    return is;
+        //Se declaran variables temporales
+        string nombre, genero;
+        float edad, salud;
+        //Se pide al usuario agregar al jugador
+        cout << "\t\tAgregar aldeano" << endl;
+        cout << "Ingrese el nombre del Aldeano: ";
+        cin.ignore();
+        getline(is, nombre);
+        cout << "Ingrese la edad del Aldeano: ";
+        is >> edad;
+        cout << "Ingrese el género del Aldeano: ";
+        cin.ignore();
+        getline(is, genero);
+        cout << "Ingrese la salud del Aldeano: ";
+        is >> salud;
+        //Se asignan los atributos por medio de los métodos de acceso
+        a.setNombre(nombre);
+        a.setEdad(edad);
+        a.setGenero(genero);
+        a.setSalud(salud);
+        return is;
     }
+    friend ostream& operator <<(ostream& os, const Aldeano& a)
+    {
+        os << "Nombre: " << a.getNombre() << endl;
+        os << "Edad: " << a.getEdad() << endl;
+        os << "Género: " << a.getGenero() << endl;
+        os << "Salud: " << a.getSalud() << endl;
+        return os;
+    }
+    //Remove no sabe como eliminar un Aldeano, así que se sobrecarga el comparador "==".
+    friend bool operator ==(const Aldeano& a1, const Aldeano& a2)  //Con esta sobrecarga "remove" ya sabe como eliminar un Jugador.
+	{
+		return a1.getNombre() == a2.getNombre();
+	}
 };
 #endif
