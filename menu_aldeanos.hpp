@@ -3,6 +3,15 @@
 #include <iostream>
 #include "Civilizacion.hpp"
 using namespace std;
+void clasificar()
+{
+    cout << "\tClasificar Aldeanos" << endl;
+    cout << "1) Ordenar por Nombre (Ascendente)" << endl;
+    cout << "2) Ordenar por Edad (Descendente)" << endl;
+    cout << "3) Ordenar por Salud (Descendente)" << endl;
+    cout << "4) Salir" << endl;
+    cout << "Selecciona una opción: ";
+}
 void eliminar()
 {
     cout << "\tEliminar Aldeanos" << endl;
@@ -122,19 +131,48 @@ void menu_aldeanos(Civilizacion* c, Jugador* j)
         }
         if (opcion_aldeanos == 3)
         {
-            /* code */
+            while (true)
+            {
+                clasificar();
+                size_t clasificar;
+                cin >> clasificar;
+                if (clasificar == 1)
+                {
+                    c->ordenarNombre();
+                    break;
+                }
+                if (clasificar == 2)
+                {
+                    c->ordenarEdad();
+                    break;
+                }
+                if (clasificar == 3)
+                {
+                    c->ordenarSalud();
+                    break;
+                }
+                if (clasificar == 4)
+                {
+                    cout << "Usted ha regresado al menú de Aldeanos" << endl;
+                    break;
+                }
+                if (clasificar < 1 || clasificar > 4)
+                {
+                    cout << "Ha seleccionado una opción no válida" << endl;
+                }   
+            } 
         }
         if (opcion_aldeanos == 4)
         {
-            /* code */
+            c->buscar();
         }
         if (opcion_aldeanos == 5)
         {
-            /* code */
+            c->modificar();
         }
         if (opcion_aldeanos == 6)
         {
-            /* code */
+            c->mostrar();
         }
         if (opcion_aldeanos == 7)
         {
