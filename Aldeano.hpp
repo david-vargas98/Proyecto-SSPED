@@ -1,6 +1,7 @@
 #ifndef ALDEANO_HPP
 #define ALDEANO_HPP
 #include <iostream>
+#include <iomanip>
 using namespace std;
 class Aldeano
 {
@@ -47,10 +48,8 @@ class Aldeano
     }
     friend ostream& operator <<(ostream& os, const Aldeano& a)
     {
-        os << "Nombre: " << a.getNombre() << endl;
-        os << "Edad: " << a.getEdad() << endl;
-        os << "Género: " << a.getGenero() << endl;
-        os << "Salud: " << a.getSalud() << endl;
+        cout << left;
+        os << setw(10) << a.getNombre() << setw(6) << a.getEdad() << setw(8) << a.getGenero() <<  setw(7) << a.getSalud() << endl;
         return os;
     }
     //Remove no sabe como eliminar un Aldeano, así que se sobrecarga el comparador "==".
