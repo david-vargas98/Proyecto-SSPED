@@ -16,7 +16,7 @@ void eliminar()
 {
     cout << "\tEliminar Aldeanos" << endl;
     cout << "1) Eliminar por Nombre" << endl;
-    cout << "2) Eliminar Aldeanos dónde su salud sea menor a la que ingrese el ususario" << endl;
+    cout << "2) Eliminar Aldeanos dónde su salud sea menor a la que ingrese el usuario" << endl;
     cout << "3) Eliminar aldeanos donde su edad sea mayor o igual a 60" << endl;
     cout << "4) Salir" << endl;
     cout << "Selecciona una opción: ";
