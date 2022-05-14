@@ -135,9 +135,8 @@ void menu_civilizaciones(Jugador* resultado)
             encontrada = resultado->buscar();
             if (encontrada != nullptr)
             {
-                menu_aldeanos(encontrada);
+                menu_aldeanos(encontrada, resultado);
             }
-            
         }
         else if (opcion_civi == 9)
         {
