@@ -3,6 +3,7 @@
 #include <iostream>
 #include "Jugador.hpp"
 #include "menu_aldeanos.hpp"
+#include "menu_barcos.hpp"
 using namespace std;
 void menu_ordenar_civilizaciones()
 {
@@ -135,7 +136,37 @@ void menu_civilizaciones(Jugador* resultado)
             encontrada = resultado->buscar();
             if (encontrada != nullptr)
             {
-                menu_aldeanos(encontrada, resultado);
+                while (true)
+                {
+                    cout << "\t¿Qué deseas agregar?" << endl;
+                    cout << "1) Aldeanos" << endl;
+                    cout << "2) Barcos" << endl;
+                    cout << "3) Salir" << endl;
+                    cout << "Selecciona una opción: ";
+                    size_t opc;
+                    cin >> opc;
+                    
+                    if (opc == 1)
+                    {
+                        menu_aldeanos(encontrada, resultado);
+                        break;
+                    }
+                    else if (opc == 2)
+                    {
+                        menu_barcos(encontrada, resultado);
+                        break;
+                    }
+                    else if (opc == 3)
+                    {
+                        cout << "Usted ha regresado al menú de Civilizaciones" << endl;
+                        break;
+                    }
+                    else if (opc < 1 || opc > 3)
+                    {
+                        cout << "Ha seleccionado una opción no válida" << endl;
+                    }
+                }
+                
             }
         }
         else if (opcion_civi == 9)
