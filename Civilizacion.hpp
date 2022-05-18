@@ -13,7 +13,7 @@ class Civilizacion
     int posx;
     int posy;
     list<Aldeano> aldeanos;  //Se incluye un list de aldeanos.
-    list<Barco*> barcos;  //Se añade un list de punteros de tipo Barco.
+    list<Barco*> puerto;  //Se añade un list de punteros de tipo Barco.
     public:
     //Constructores
     Civilizacion() = default;
@@ -46,5 +46,11 @@ class Civilizacion
     void buscar();
     void modificar();
     void mostrar();
+    //Método de la list de Barcos:
+    void agregarBarco(Barco* b)
+    {
+        puerto.push_back(b);
+        cout << "¡El Barco ha sido añadido con éxito!" << endl;
+    }
 };
 #endif
