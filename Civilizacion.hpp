@@ -3,6 +3,8 @@
 #include <iostream>
 #include <list>
 #include "Aldeano.hpp"
+#include "Barco.hpp"
+#include <list>
 using namespace std;
 class Civilizacion
 {
@@ -11,6 +13,7 @@ class Civilizacion
     int posx;
     int posy;
     list<Aldeano> aldeanos;  //Se incluye un list de aldeanos.
+    list<Barco*> barcos;  //Se añade un list de punteros de tipo Barco.
     public:
     //Constructores
     Civilizacion() = default;
