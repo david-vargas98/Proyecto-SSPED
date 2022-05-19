@@ -238,3 +238,87 @@ void Civilizacion::mostrarBarcos()
     }
     cout << endl;
 }
+void Civilizacion::buscarBarcos()
+{
+    cout << "Ingrese el ID del Barco que desea buscar: ";
+    string ID;
+    cin.ignore();
+    getline(cin, ID);
+    Barco* b = new Barco();
+    b->setId(ID);
+    for (auto e: puerto)
+    {
+        if (*e == *b)
+        {
+            cout << "¡Barco encontrado!" << endl;
+            while (true)
+            {
+                cout << "\tMenú Guerreros para el Barco " << e->getId() << endl;
+                cout << "1) Agregar Guerrero" << endl;
+                cout << "2) Eliminar Guerrero" << endl;
+                cout << "3) Mostrar último Guerrero" << endl;
+                cout << "4) Mostrar todos los Guerreros" << endl;
+                cout << "5) Salir" << endl;
+                cout << "Seleciona una opción: ";
+                size_t opc;
+                cin >> opc;
+                if (opc == 1)
+                {
+                    Guerrero g;
+                    cout << "Ingrese el ID del Guerrero: ";
+                    string id;
+                    cin.ignore();
+                    getline(cin, id);
+                    cout << "Ingrese la Salud del Guerrero: ";
+                    int salud;
+                    cin >> salud;
+                    cout << "Ingrese la Fuerza del Guerrero: ";
+                    float fuerza;
+                    cin >> fuerza;
+                    cout << "Ingrese el Escudo del Guerrero: ";
+                    float escudo;
+                    cin >> escudo;
+                    cout << "Ingrese el tipo de Guerrero: ";
+                    string tipo;
+                    cin.ignore();
+                    getline(cin, tipo);
+
+                    g.setId(id);
+                    g.setSalud(salud);
+                    g.setFuerza(fuerza);
+                    g.setEscudo(escudo);
+                    g.setTipo(tipo);
+
+                    e->agregarGuerrero(g);
+                    cout << "¡El Guerrero ha sido agregado con éxito!" << endl;
+                }
+                if (opc == 2)
+                {
+                    e->eliminarGuerrero();                    
+                }
+                if (opc == 3)
+                {
+                    e->tope();
+                }
+                if (opc == 4)
+                {
+                    e->mostrar();
+                }
+                if (opc == 5)
+                {
+                    cout << "Usted ha regresado al menú de Barcos" << endl;
+                    break;
+                }
+                if (opc < 1 || opc > 5)
+                {
+                    cout << "Ha seleccionado una opción no válida" << endl;
+                }
+            }
+        }
+        else
+        {
+            cout << "El Barco buscado no existe" << endl;
+        }     
+    }
+        
+}
