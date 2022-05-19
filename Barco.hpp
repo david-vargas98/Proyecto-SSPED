@@ -41,6 +41,7 @@ class Barco
         }
         
     }
-    void tope(){cout << "El tope es: " << endl; guerreros.top();}
+    void tope(){cout << "El tope es: "; guerreros.top();}
+    size_t size(){return guerreros.size();}
 };
 #endif
