@@ -23,11 +23,11 @@ void menu_barcos(Civilizacion* c, Jugador* j)
         cin >> opcion_barcos;
         if (opcion_barcos == 1)
         {
-            
+            c->capturarBarco(c);
         }
         if (opcion_barcos == 2)
         {
-            
+            c->mostrarBarcos();
         }
         if (opcion_barcos == 3)
         {
