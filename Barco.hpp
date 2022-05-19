@@ -14,7 +14,7 @@ class Barco
     stack<Guerrero> guerreros;  //Se agrega un stack de tipo guerrero.
     public:
     Barco() = default;
-    //Métodos set y get.
+    //Métodos set y get:
     void setId(const string& valor) {id = valor;}
     string getId() const {return id;}
     void setCombustible(float valor) {combustible = valor;}
@@ -23,11 +23,13 @@ class Barco
     float getVelocidad() const {return velocidad;}
     void setArmadura(float valor) {armadura = valor;}
     float getArmadura() const {return armadura;}
+    //Sobrecarga:
+    friend bool operator ==(const Barco& b1, const Barco& b2)
+	{
+		return b1.getId() == b2.getId();
+	}
     //Métodos:
-    void agregarGuerrero(Guerrero g)
-    {
-        guerreros.push(g); cout << "¡El Guerrero ha sido añadido!" << endl;
-    }
+    void agregarGuerrero(Guerrero g){ guerreros.push(g); }
     void eliminarGuerrero()
     {
         if (guerreros.empty())
@@ -41,7 +43,39 @@ class Barco
         }
         
     }
-    void tope(){cout << "El tope es: "; guerreros.top();}
+    void tope()
+    {
+        if (guerreros.empty())
+        {
+            cout << "No hay guerreros para mostrar" << endl;
+        }
+        else
+        {
+            cout << left;
+            cout << setw(6) << "ID" << setw(7) << "Salud" << setw(7) << "Fuerza" << setw(7) << "Escudo" << setw(5) << "Tipo" << endl; 
+            cout << guerreros.top();
+            
+        }
+    }
     size_t size(){return guerreros.size();}
+    void mostrar()
+    {
+        if (guerreros.empty())
+        {
+            cout << "No hay guerreros para mostrar" << endl;
+        }
+        else
+        {
+            stack<Guerrero> copia(guerreros);
+            cout << left;
+            cout << setw(6) << "ID" << setw(7) << "Salud" << setw(7) << "Fuerza" << setw(7) << "Escudo" << setw(5) << "Tipo" << endl; 
+            while (!copia.empty())
+            {
+                auto& e = copia.top();
+                cout << e;
+                copia.pop();
+            }
+        }        
+    }
 };
 #endif
