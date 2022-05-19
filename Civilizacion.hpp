@@ -4,7 +4,6 @@
 #include <list>
 #include "Aldeano.hpp"
 #include "Barco.hpp"
-#include <list>
 using namespace std;
 class Civilizacion
 {
@@ -47,10 +46,10 @@ class Civilizacion
     void modificar();
     void mostrar();
     //Método de la list de Barcos:
-    void agregarBarco(Barco* b)
-    {
-        puerto.push_back(b);
-        cout << "¡El Barco ha sido añadido con éxito!" << endl;
-    }
+    void capturarBarco(Civilizacion* c);
+    void agregarBarco(Barco* b);
+    void mostrarBarcos();
+    void buscarBarcos();
+    void eliminarBArcos();
 };
 #endif
