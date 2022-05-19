@@ -314,6 +314,7 @@ void Civilizacion::buscarBarcos()
                     cout << "Ha seleccionado una opción no válida" << endl;
                 }
             }
+            break;
         }
         else
         {
