@@ -31,7 +31,7 @@ void menu_barcos(Civilizacion* c, Jugador* j)
         }
         if (opcion_barcos == 3)
         {
-            
+            c->buscarBarcos();
         }
         if (opcion_barcos == 4)
         {
