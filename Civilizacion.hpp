@@ -50,6 +50,6 @@ class Civilizacion
     void agregarBarco(Barco* b);
     void mostrarBarcos();
     void buscarBarcos();
-    void eliminarBArcos();
+    void eliminarBarcos();
 };
 #endif
