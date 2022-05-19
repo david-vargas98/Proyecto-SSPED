@@ -46,9 +46,6 @@ void menu_barcos(Civilizacion* c, Jugador* j)
         {
             cout << "Ha seleccionado una opción no válida" << endl;
         }
-        
-
-    }
-    
+    }   
 }
 #endif
