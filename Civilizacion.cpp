@@ -202,3 +202,39 @@ void Civilizacion::mostrar()
         }   
     }
 }
+//Métodos para los barcos:
+void Civilizacion::capturarBarco(Civilizacion* c)
+{
+    //Declaración de variables.
+    string id;
+    float combustible;
+    //Declaración e instancia del puntero.
+    Barco *b = new Barco();
+    cout << "Ingrese el ID del barco: ";
+    cin.ignore();
+    getline(cin, id);
+    cout << "Ingrese el combustible del barco: ";
+    cin >> combustible;
+    //Se le dan valor a los atributos.
+    b->setId(id);
+    b->setCombustible(combustible);
+    b->setVelocidad(0.0);
+    b->setArmadura(100.0);
+    //Se agrega el barco a la civilización.
+    c->agregarBarco(b);
+}
+void Civilizacion::agregarBarco(Barco* b)
+{
+    puerto.push_back(b);
+    cout << "¡El Barco ha sido añadido con éxito!" << endl;
+}
+void Civilizacion::mostrarBarcos()
+{
+    cout << left;
+    cout << setw(6) << "ID" << setw(12) << "Combustible" << setw(10) << "Velocidad" << setw(9) << "Armadura" << setw(21) << "Cantidad de Guerreros" << endl;
+    for (auto e: puerto)
+    {
+        cout << setw(6) << e->getId() << setw(12) << e->getCombustible() << setw(10) << e->getVelocidad() << setw(9) << e->getArmadura() << setw(21) << e->size() << endl;
+    }
+    cout << endl;
+}
