@@ -35,7 +35,7 @@ void menu_barcos(Civilizacion* c, Jugador* j)
         }
         if (opcion_barcos == 4)
         {
-            
+            c->eliminarBarcos();
         }
         if (opcion_barcos == 5)
         {
