@@ -230,13 +230,20 @@ void Civilizacion::agregarBarco(Barco* b)
 }
 void Civilizacion::mostrarBarcos()
 {
-    cout << left;
-    cout << setw(6) << "ID" << setw(12) << "Combustible" << setw(10) << "Velocidad" << setw(9) << "Armadura" << setw(21) << "Cantidad de Guerreros" << endl;
-    for (auto e: puerto)
+    if (puerto.empty())
     {
-        cout << setw(6) << e->getId() << setw(12) << e->getCombustible() << setw(10) << e->getVelocidad() << setw(9) << e->getArmadura() << setw(21) << e->size() << endl;
+        cout << "¡El puerto está vacío!" << endl;
     }
-    cout << endl;
+    else
+    {
+        cout << left;
+        cout << setw(6) << "ID" << setw(12) << "Combustible" << setw(10) << "Velocidad" << setw(9) << "Armadura" << setw(21) << "Cantidad de Guerreros" << endl;
+        for (auto e: puerto)
+        {
+            cout << setw(6) << e->getId() << setw(12) << e->getCombustible() << setw(10) << e->getVelocidad() << setw(9) << e->getArmadura() << setw(21) << e->size() << endl;
+        }
+        cout << endl;
+    }
 }
 void Civilizacion::buscarBarcos()
 {
@@ -246,11 +253,13 @@ void Civilizacion::buscarBarcos()
     getline(cin, ID);
     Barco* b = new Barco();
     b->setId(ID);
+    int band = 0;
     for (auto e: puerto)
     {
         if (*e == *b)
         {
             cout << "¡Barco encontrado!" << endl;
+            band = 1;
             while (true)
             {
                 cout << "\tMenú Guerreros para el Barco " << e->getId() << endl;
@@ -314,12 +323,68 @@ void Civilizacion::buscarBarcos()
                     cout << "Ha seleccionado una opción no válida" << endl;
                 }
             }
-            break;
-        }
-        else
-        {
-            cout << "El Barco buscado no existe" << endl;
         }     
     }
-        
+    if (band == 0)
+    {
+        cout << "El Barco buscado no existe" << endl;
+    }  
+}
+void Civilizacion::eliminarBarcos()
+{
+    if (puerto.empty())
+    {
+        cout << "¡El puerto está vacío, no se puede eliminar Barcos!" << endl;
+    }
+    else
+    {
+        while (true)
+        {
+            cout << "Eliminar por:" << endl;
+            cout << "1) ID" << endl;
+            cout << "2) Combustible menor a" << endl;
+            cout << "3) Salir" << endl;
+            cout << "Seleciona una opción: "; 
+            size_t opc;
+            cin >> opc;
+            if (opc == 1)
+            {
+                cout << "Ingrese el ID del Barco que desea eliminar: ";
+                string ID;
+                cin.ignore();
+                getline(cin, ID);
+                Barco* b = new Barco();
+                b->setId(ID);
+                for (auto e : puerto)
+                {
+                    if (*e == *b)
+                    {
+                        puerto.remove(e);
+                        delete e;
+                        cout << "¡El Barco ha sido eliminado!" << endl;
+                        break;
+                    }
+                    else
+                    {
+                        cout << "El Barco a eliminar no existe" << endl;
+                    }
+                }
+                break;
+            }
+            if (opc == 2)
+            {
+                /* code */
+            }
+            if (opc == 3)
+            {
+                cout << "Usted ha regresado al menú de Barcos" << endl;
+                break;
+            }
+            if (opc < 1 || opc >3)
+            {
+                cout << "Ha seleccionado una opción no válida" << endl;
+            }
+        }
+    }
+    
 }
