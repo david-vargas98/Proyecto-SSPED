@@ -47,7 +47,6 @@ void Civilizacion::eliminarSalud()
     cout << "Eliminar Aldeanos que tengan la salud menor a: ";
     cin >> salud;
     aldeanos.remove_if([salud] (Aldeano& a) {return a.getSalud() < salud;});
-    size_t cantidad = aldeanos.size();
     cout << "¡Los Aldeanos con salud menor a " << salud << " han sido eliminados!" << endl; 
 }
 void Civilizacion::eliminarEdad()
@@ -373,7 +372,12 @@ void Civilizacion::eliminarBarcos()
             }
             if (opc == 2)
             {
-                /* code */
+                cout << "Eliminar Barcos con combustible menor a: ";
+                float combus;
+                cin >> combus;
+                puerto.remove_if([combus](Barco* b){return b->getCombustible() < combus;});
+                cout << "¡Los Barcos con combustible menor a " << combus << " han sido eliminados" << endl;
+                break;
             }
             if (opc == 3)
             {
@@ -385,6 +389,5 @@ void Civilizacion::eliminarBarcos()
                 cout << "Ha seleccionado una opción no válida" << endl;
             }
         }
-    }
-    
+    }   
 }
