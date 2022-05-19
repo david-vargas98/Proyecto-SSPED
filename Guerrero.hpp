@@ -1,6 +1,7 @@
 #ifndef GUERRERO_HPP
 #define GUERRERO_HPP
 #include <iostream>
+#include <iomanip>
 using namespace std;
 class Guerrero
 {
@@ -23,5 +24,12 @@ class Guerrero
     float getEscudo() const {return escudo;}
     void setTipo(const string& valor) {tipo = valor;}
     string getTipo() const {return tipo;}
+    //Sobrecarga
+    friend ostream& operator <<(ostream& os, const Guerrero& g)
+    {
+        cout << left;
+        os << setw(6) << g.getId() << setw(7) << g.getSalud() << setw(7) << g.getFuerza() << setw(7) << g.getEscudo() << setw(5) << g.getTipo() << endl; 
+        return os;
+    }
 };
 #endif
