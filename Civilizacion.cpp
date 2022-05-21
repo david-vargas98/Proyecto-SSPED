@@ -354,6 +354,7 @@ void Civilizacion::eliminarBarcos()
                 getline(cin, ID);
                 Barco* b = new Barco();
                 b->setId(ID);
+                int eliminado = 0;
                 for (auto e : puerto)
                 {
                     if (*e == *b)
@@ -361,13 +362,15 @@ void Civilizacion::eliminarBarcos()
                         puerto.remove(e);
                         delete e;
                         cout << "¡El Barco ha sido eliminado!" << endl;
+                        eliminado = 1;
                         break;
                     }
-                    else
-                    {
-                        cout << "El Barco a eliminar no existe" << endl;
-                    }
                 }
+                if (eliminado == 0)
+                {
+                    cout << "El Barco a eliminar no existe" << endl;
+                }
+                
                 break;
             }
             if (opc == 2)
