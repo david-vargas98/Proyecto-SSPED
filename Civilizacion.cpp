@@ -394,3 +394,63 @@ void Civilizacion::eliminarBarcos()
         }
     }   
 }
+void Civilizacion::agregarIdBatalla()
+{
+    cout << "Ingrese el ID del Barco que desea agregar a la batalla: ";
+    string ID;
+    cin.ignore();
+    getline(cin, ID);
+    Barco* b = new Barco();
+    b->setId(ID);
+    int band = 0;
+    for(auto e: puerto)
+    {
+        if (*e == *b)
+        {
+            cout << "¡Barco encontrado!" << endl;
+            band = 1;
+            if (e->getCombustible() > 0.0)
+            {
+                pq.push(e);
+                cout << "Ingrese la velocidad del Barco que se agregará (0.0 - 14.0): ";
+                float velocidad;
+                cin >> velocidad;
+                cout << "¡El Barco ha sido agregado a la batalla!" << endl;
+                e->setVelocidad(velocidad);
+                puerto.remove(e);  //Se elimina del puerto.
+                break;
+            }
+            else
+            {
+                cout << "No se puede agregar a la batalla, ya que el combustible es 0" << endl;
+            } 
+        }
+    }
+    if (band == 0)
+    {
+        cout << "El Barco buscado no existe" << endl;
+    }
+}
+void Civilizacion::sacarBatalla()
+{
+
+}
+void Civilizacion::mostrarBatalla()
+{
+    if (pq.empty())
+    {
+        cout << "No hay Barcos en la batalla" << endl;
+    }
+    else
+    {
+        priority_queue<Barco*, vector<Barco*>, Barco::cmp> copia(pq);
+        cout << left;
+        cout << setw(6) << "ID" << setw(12) << "Combustible" << setw(10) << "Velocidad" << setw(9) << "Armadura" << endl;
+        while (!copia.empty())
+        {
+            auto barco = copia.top();
+            cout << *barco << endl;
+            copia.pop();
+        }
+    }  
+}
