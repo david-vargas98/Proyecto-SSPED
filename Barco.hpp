@@ -77,5 +77,12 @@ class Barco
             }
         }        
     }
+    struct cmp
+    {
+        bool operator()(Barco* b1, Barco* b2)
+        {
+            return b1->getVelocidad() < b2->getVelocidad();
+        }
+    };
 };
 #endif
