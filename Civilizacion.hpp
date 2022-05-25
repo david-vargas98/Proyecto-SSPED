@@ -53,5 +53,9 @@ class Civilizacion
     void mostrarBarcos();
     void buscarBarcos();
     void eliminarBarcos();
+    //Métodos para la batalla.
+    void agregarIdBatalla();
+    void sacarBatalla();
+    void mostrarBatalla();
 };
 #endif
