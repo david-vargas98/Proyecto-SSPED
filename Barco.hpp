@@ -28,6 +28,12 @@ class Barco
 	{
 		return b1.getId() == b2.getId();
 	}
+    friend ostream& operator <<(ostream& out, Barco& b)
+    {
+        out << left;
+        out << setw(6) << b.getId() << setw(12) << b.getCombustible() << setw(10) << b.getVelocidad() << setw(9) << b.getArmadura();
+        return out;
+    }
     //Métodos:
     void agregarGuerrero(Guerrero g){ guerreros.push(g); }
     void eliminarGuerrero()
