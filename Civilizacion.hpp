@@ -2,6 +2,7 @@
 #define CIVILIZACION_HPP
 #include <iostream>
 #include <list>
+#include <queue>
 #include "Aldeano.hpp"
 #include "Barco.hpp"
 using namespace std;
@@ -13,6 +14,7 @@ class Civilizacion
     int posy;
     list<Aldeano> aldeanos;  //Se incluye un list de aldeanos.
     list<Barco*> puerto;  //Se añade un list de punteros de tipo Barco.
+    priority_queue<Barco*, vector<Barco*>, Barco::cmp> pq;  //Se crea la cola de prioridad.
     public:
     //Constructores
     Civilizacion() = default;
