@@ -411,12 +411,12 @@ void Civilizacion::agregarIdBatalla()
             band = 1;
             if (e->getCombustible() > 0.0)
             {
-                pq.push(e);
                 cout << "Ingrese la velocidad del Barco que se agregará (0.0 - 14.0): ";
                 float velocidad;
                 cin >> velocidad;
-                cout << "¡El Barco ha sido agregado a la batalla!" << endl;
                 e->setVelocidad(velocidad);
+                pq.push(e);
+                cout << "¡El Barco ha sido agregado a la batalla!" << endl;
                 puerto.remove(e);  //Se elimina del puerto.
                 break;
             }
@@ -433,7 +433,105 @@ void Civilizacion::agregarIdBatalla()
 }
 void Civilizacion::sacarBatalla()
 {
-
+    if (pq.empty())
+    {
+        cout << "No hay Barcos en la batalla" << endl;
+    }
+    else
+    {
+        Barco* barco = pq.top();
+        while (true)
+        {
+            cout << "\t¿Desea modificar alguno de los siguientes atributos?" << endl;
+            cout << "1) Actualizar Armadura" << endl;
+            cout << "2) Actualizar Combustible" << endl;
+            cout << "3) Salir" << endl;
+            cout << "Seleciona una opción: ";
+            int opcion;
+            cin >> opcion;
+            if (opcion == 1)
+            {
+                barco->setVelocidad(0.0);
+                cout << "Ingrese el nuevo valor en Armadura: ";
+                float armadura;
+                cin >> armadura;
+                barco->setArmadura(armadura);
+                cout << "¡La Armadura ha sido actualizada con éxito!" << endl;
+            }
+            if (opcion == 2)
+            {
+                barco->setVelocidad(0.0);
+                cout << "Ingrese el nuevo valor en Combustible: ";
+                float combustible;
+                cin >> combustible;
+                barco->setCombustible(combustible);
+                cout << "¡El Combustible ha sido actualizado con éxito!" << endl;
+            }
+            if (opcion == 3)
+            {
+                cout << "Usted ha regresado al menú de Barcos" << endl;
+                break;
+            }
+            if (opcion< 1 || opcion > 3)
+            {
+                cout << "Ha elegido una opción no válida" << endl;
+                continue;
+            }
+            if (barco->getArmadura() == 0)
+            {
+                pq.pop();
+                delete barco;
+                cout << "El Barco no regresó al puerto ya que su Armadura es 0.0" << endl;
+            }
+            else
+            {
+                puerto.push_back(barco);
+                pq.pop();
+                cout << "¡El Barco ha sido añadido al Puerto!" << endl;
+            }
+            priority_queue<Barco*, vector<Barco*>, Barco::cmp> copia(pq);
+            while (!pq.empty())
+            {
+                Barco* barco = pq.top();
+                float armadura;
+                armadura = barco->getArmadura() - 10;
+                barco->setArmadura(armadura);
+                float combustible;
+                combustible = barco->getCombustible() - 15;
+                barco->setCombustible(combustible);
+                pq.pop();
+            }
+            while (!copia.empty())
+            {
+                Barco* barco = copia.top();
+                pq.push(barco);
+                copia.pop();
+            }
+            priority_queue<Barco*, vector<Barco*>, Barco::cmp> copia2;
+            while (!pq.empty())
+            {
+                Barco* barco = pq.top();
+                if (barco->getArmadura() <= 0 || barco->getCombustible() <= 0)
+                {
+                    cout << "El Barco con ID: " << barco->getId() << " han sido borrado ya que su Combustible o Armadura han sido reducidos a cero" << endl;
+                    delete barco;
+                    pq.pop();
+                }
+                else
+                {
+                    copia2.push(barco);
+                    pq.pop();
+                }
+            }
+            while (!copia2.empty())
+            {
+                Barco* barco = copia2.top();
+                pq.push(barco);
+                copia2.pop();
+            }
+            break;
+        }
+    }
 }
 void Civilizacion::mostrarBatalla()
 {
@@ -448,7 +546,7 @@ void Civilizacion::mostrarBatalla()
         cout << setw(6) << "ID" << setw(12) << "Combustible" << setw(10) << "Velocidad" << setw(9) << "Armadura" << endl;
         while (!copia.empty())
         {
-            auto barco = copia.top();
+            Barco* barco = copia.top();
             cout << *barco << endl;
             copia.pop();
         }
